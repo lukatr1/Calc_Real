@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>ejb.calc.example</artifactId>
+    <groupId>net.froihofer</groupId>
+    <version>2.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ejb.calc.example-web</artifactId>
+  <packaging>war</packaging>
+
+  <name>ejb.calc.example Web module</name>
+
+  <dependencies>
+
+    <!-- Dependency on the EJB module so we can use its services if needed -->
+    <dependency>
+      <groupId>net.froihofer</groupId>
+      <artifactId>ejb.calc.example-ejb</artifactId>
+      <type>ejb</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-web-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

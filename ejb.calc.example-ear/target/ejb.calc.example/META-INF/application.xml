@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/application_10.xsd" version="10">
+  <application-name>ejb-calc-ear</application-name>
+  <display-name>ejb.calc.example-ear</display-name>
+  <module>
+    <web>
+      <web-uri>net.froihofer-ejb.calc.example-web-2.0.0-SNAPSHOT.war</web-uri>
+      <context-root>/calculator</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>net.froihofer-ejb.calc.example-ejb-2.0.0-SNAPSHOT.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

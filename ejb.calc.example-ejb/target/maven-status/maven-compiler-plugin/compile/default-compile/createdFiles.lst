@@ -1,0 +1,4 @@
+net\froihofer\ejb\calc\entity\VariableTranslator.class
+net\froihofer\ejb\calc\entity\VariableDAO.class
+net\froihofer\ejb\calc\entity\Variable.class
+net\froihofer\ejb\calc\service\CalculatorImpl.class

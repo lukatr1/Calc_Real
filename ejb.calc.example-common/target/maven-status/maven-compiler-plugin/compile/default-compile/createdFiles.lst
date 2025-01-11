@@ -1,0 +1,3 @@
+net\froihofer\ejb\calc\common\Calculator.class
+net\froihofer\ejb\calc\common\CalculatorException.class
+net\froihofer\ejb\calc\common\VariableDTO.class

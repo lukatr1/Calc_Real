@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.froihofer</groupId>
+  <artifactId>ejb.calc.example</artifactId>
+  <version>2.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>ejb.calc.example application</name>
+
+  <properties>
+    <!-- Explicitly declaring the source encoding eliminates the following message:
+         [WARNING] Using platform encoding (UTF-8 actually) to copy filtered
+         resources, i.e. build is platform dependent! -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <wildfly.deploy.dir>C:\Programs\wildfly-28.0.1.Final-develop\standalone\deployments</wildfly.deploy.dir>
+    <wildfly.version>28.0.1.Final</wildfly.version>
+    <slf4j.version>2.0.5</slf4j.version>
+    <jakartaee.version>10.0.0</jakartaee.version>
+    <commons-lang.version>3.12.0</commons-lang.version>
+    <cxf.version>4.0.0</cxf.version>
+    <junit.version>4.13.2</junit.version>
+  </properties>
+
+  <modules>
+    <module>ejb.calc.example-common</module>
+    <module>ejb.calc.example-ejb</module>
+    <module>ejb.calc.example-web</module>
+    <module>ejb.calc.example-ear</module>
+    <module>ejb.calc.example-client</module>
+  </modules>
+
+  <!-- Define some version dependencies so that they don't have to repeated in every module -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>net.froihofer</groupId>
+        <artifactId>ejb.calc.example-ejb</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>net.froihofer</groupId>
+        <artifactId>ejb.calc.example-web</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <type>war</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>${jakartaee.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-web-api</artifactId>
+        <version>${jakartaee.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Compiler plugin enforces Java 11 compatibility -->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <release>11</release>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="jakarta.faces.facelets"
+   xmlns:f="jakarta.faces.core"
+   xmlns:h="jakarta.faces.html"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>Calculator Example</h1>
+      <h:form id="calcForm">
+         <h:panelGrid columns="3" columnClasses="titleCell">
+            <h:outputLabel for="var1" value="Var 1:"/>
+            <h:inputText id="var1" value="#{calculatorJsfBean.var1}" />
+            <h:message for="var1" errorClass="invalid"/>
+
+            <h:outputLabel for="var2" value="Var 2:"/>
+            <h:inputText id="var2" value="#{calculatorJsfBean.var2}" />
+            <h:message for="var2" errorClass="invalid"/>
+         </h:panelGrid>
+
+         <p>
+            <h:panelGrid columns="2">
+               <h:commandButton id="calcBtn" action="#{calculatorJsfBean.calculateResults()}" value="Calculate sum"/>
+               <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                           globalOnly="true"/>
+            </h:panelGrid>
+         </p>
+         <ui:fragment rendered="#{calculatorJsfBean.resultsAvailable}">
+         	<h2>Results</h2>
+         	<h:panelGrid columns="2">
+         		<h:outputText value="Sum:"/>
+         		<h:outputText value="#{calculatorJsfBean.sum}" />
+         	</h:panelGrid>
+         </ui:fragment>
+      </h:form>
+   </ui:define>
+</ui:composition>
